@@ -409,7 +409,7 @@ public class SpringPropertyProxyHibernateNativeFieldAccessTests {
         public void beforeTestClass(TestContext testContext) throws Exception {
             SessionFactory sessionFactory = testContext.getApplicationContext().getBean(SessionFactory.class);
             Session session = sessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
+            session.getTransaction().begin();
 
             PersonNP father = new PersonNP();
             father.name = "Dad";
@@ -462,7 +462,7 @@ public class SpringPropertyProxyHibernateNativeFieldAccessTests {
             session.update(mother);
 
             session.flush();
-            tx.commit();
+            session.getTransaction().commit();
             session.close();
         }
 

@@ -50,4 +50,14 @@ public class RuntimeEnvironmentTests extends AbstractRuntimeEnvironmentAwareTest
     public void isSpringFlexHibernate4SupportAvailable() {
         assertFalse(RuntimeEnvironment.isSpringFlexHibernate4SupportAvailable());
     }
+
+    @Test
+    public void isSpringFlexHibernate5SupportAvailable() {
+        assertFalse(RuntimeEnvironment.isSpringFlexHibernate5SupportAvailable());
+    }
+
+    @Test
+    public void isHibernate5SupportAvailable() {
+        assertFalse(RuntimeEnvironment.isHibernate5SupportAvailable());
+    }
 }

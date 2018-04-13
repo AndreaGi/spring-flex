@@ -402,7 +402,7 @@ public class SpringPropertyProxyHibernateNativeTests {
         public void beforeTestClass(TestContext testContext) throws Exception {
             SessionFactory sessionFactory = testContext.getApplicationContext().getBean(SessionFactory.class);
             Session session = sessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
+            session.getTransaction().begin();
 
             Person father = new Person();
             father.setName("Dad");
@@ -455,7 +455,7 @@ public class SpringPropertyProxyHibernateNativeTests {
             session.update(mother);
 
             session.flush();
-            tx.commit();
+            session.getTransaction().commit();
             session.close();
         }
 

@@ -80,6 +80,8 @@ public class MessageBrokerBeanDefinitionParser extends AbstractSingleBeanDefinit
 
     private static final String HIBERNATE_4_CONFIG_PROCESSOR_CLASS_NAME = "org.springframework.flex.hibernate4.config.HibernateSerializationConfigPostProcessor";
 
+    private static final String HIBERNATE_5_CONFIG_PROCESSOR_CLASS_NAME = "org.springframework.flex.hibernate5.config.HibernateSerializationConfigPostProcessor";
+
     private static final String CUSTOM_EDITOR_CONFIGURER_CLASS_NAME = "org.springframework.beans.factory.config.CustomEditorConfigurer";
 
     private static final String JSON_CONFIG_MAP_EDITOR_CLASS_NAME = "org.springframework.flex.config.json.JsonConfigMapPropertyEditor";
@@ -284,6 +286,7 @@ public class MessageBrokerBeanDefinitionParser extends AbstractSingleBeanDefinit
 
         registerHibernate3SerializationConfigPostProcessorIfNecessary(source, parserContext);
         registerHibernate4SerializationConfigPostProcessorIfNecessary(source, parserContext);
+        registerHibernate5SerializationConfigPostProcessorIfNecessary(source, parserContext);
     }
 
     private void configureSecurity(Element parent, ParserContext parserContext, ManagedSet<RuntimeBeanReference> configProcessors, ManagedList<RuntimeBeanReference> advisors,
@@ -479,6 +482,14 @@ public class MessageBrokerBeanDefinitionParser extends AbstractSingleBeanDefinit
         if (RuntimeEnvironment.isHibernate4SupportAvailable() && RuntimeEnvironment.isSpringFlexHibernate4SupportAvailable()
                 && !parserContext.getRegistry().containsBeanDefinition(BeanIds.HIBERNATE_SERIALIZATION_PROCESSOR)) {
             BeanDefinitionBuilder processorBuilder = BeanDefinitionBuilder.genericBeanDefinition(HIBERNATE_4_CONFIG_PROCESSOR_CLASS_NAME);
+            ParsingUtils.registerInfrastructureComponent(source, parserContext, processorBuilder, BeanIds.HIBERNATE_SERIALIZATION_PROCESSOR);
+        }
+    }
+
+    private void registerHibernate5SerializationConfigPostProcessorIfNecessary(Element source, ParserContext parserContext) {
+        if (RuntimeEnvironment.isHibernate5SupportAvailable() && RuntimeEnvironment.isSpringFlexHibernate5SupportAvailable()
+                && !parserContext.getRegistry().containsBeanDefinition(BeanIds.HIBERNATE_SERIALIZATION_PROCESSOR)) {
+            BeanDefinitionBuilder processorBuilder = BeanDefinitionBuilder.genericBeanDefinition(HIBERNATE_5_CONFIG_PROCESSOR_CLASS_NAME);
             ParsingUtils.registerInfrastructureComponent(source, parserContext, processorBuilder, BeanIds.HIBERNATE_SERIALIZATION_PROCESSOR);
         }
     }
