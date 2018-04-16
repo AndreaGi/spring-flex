@@ -19,19 +19,6 @@
         Spring BlazeDS Integration - Hibernate 3.x
     </description>
 
-    <distributionManagement>
-        <repository>
-            <id>central</id>
-            <name>ART-TL-releases</name>
-            <url>https://mvn.sohnar.com/artifactory/libs-release-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>ART-TL-snapshots</name>
-            <url>https://mvn.sohnar.com/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <!-- Project -->
         <dependency>
