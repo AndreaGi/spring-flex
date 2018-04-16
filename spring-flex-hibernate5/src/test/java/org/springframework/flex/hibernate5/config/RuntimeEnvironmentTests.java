@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.hibernate3.config;
+package org.springframework.flex.hibernate5.config;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -33,7 +33,7 @@ public class RuntimeEnvironmentTests extends AbstractRuntimeEnvironmentAwareTest
 
     @Test
     public void isHibernate3SupportAvailable() {
-        assertTrue(RuntimeEnvironment.isHibernate3SupportAvailable());
+        assertFalse(RuntimeEnvironment.isHibernate3SupportAvailable());
     }
 
     @Test
@@ -42,8 +42,13 @@ public class RuntimeEnvironmentTests extends AbstractRuntimeEnvironmentAwareTest
     }
 
     @Test
+    public void isHibernate5SupportAvailable() {
+        assertTrue(RuntimeEnvironment.isHibernate5SupportAvailable());
+    }
+
+    @Test
     public void isSpringFlexHibernate3SupportAvailable() {
-        assertTrue(RuntimeEnvironment.isSpringFlexHibernate3SupportAvailable());
+        assertFalse(RuntimeEnvironment.isSpringFlexHibernate3SupportAvailable());
     }
 
     @Test
@@ -53,11 +58,6 @@ public class RuntimeEnvironmentTests extends AbstractRuntimeEnvironmentAwareTest
 
     @Test
     public void isSpringFlexHibernate5SupportAvailable() {
-        assertFalse(RuntimeEnvironment.isSpringFlexHibernate5SupportAvailable());
-    }
-
-    @Test
-    public void isHibernate5SupportAvailable() {
-        assertFalse(RuntimeEnvironment.isHibernate5SupportAvailable());
+        assertTrue(RuntimeEnvironment.isSpringFlexHibernate5SupportAvailable());
     }
 }
