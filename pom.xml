@@ -27,8 +27,8 @@
     <url>https://github.com/spring-projects/spring-flex</url>
     
     <scm>
-        <url>https://github.com/spring-projects/spring-flex</url>
-        <connection>https://github.com/spring-projects/spring-flex.git</connection>
+        <connection>scm:git:ssh://github.com/AndreaGi/spring-flex</connection>
+        <developerConnection>scm:git:ssh://git@github.com/AndreaGi/spring-flex</developerConnection>
     </scm>
     
     <developers>
@@ -64,6 +64,41 @@
         <module>spring-flex-hibernate4</module>
         <module>spring-flex-hibernate5</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>ART-TL-releases</name>
+            <url>https://mvn.sohnar.com/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>ART-TL-snapshots</name>
+            <url>https://mvn.sohnar.com/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- REPOs -->
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>https://mvn.sohnar.com/artifactory/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>plugins-release</name>
+            <url>https://mvn.sohnar.com/artifactory/plugins-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <profiles>
         <profile>
