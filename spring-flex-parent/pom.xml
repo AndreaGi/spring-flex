@@ -409,12 +409,26 @@
 		</plugins>
 	</build>
 
+	<!-- REPOs -->
 	<repositories>
 		<repository>
-			<id>repo.spring.io-ext-release-local</id>
-			<name>Spring repository for third party libraries</name>
-			<url>http://repo.spring.io/ext-release-local</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>https://mvn.sohnar.com/artifactory/libs-release</url>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>plugins-release</name>
+			<url>https://mvn.sohnar.com/artifactory/plugins-release</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>
