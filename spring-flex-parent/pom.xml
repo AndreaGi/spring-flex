@@ -70,7 +70,7 @@
     </contributors>
 
     <properties>
-		<spring.version>4.2.9.RELEASE</spring.version>
+		<spring.version>4.3.14.RELEASE</spring.version>
 		<integration.version>2.2.6.RELEASE</integration.version>
 		<security.version>3.2.4.RELEASE</security.version>
 		<blazeds.version>4.0.0.14931</blazeds.version>
@@ -259,7 +259,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.9</version>
+				<version>4.12</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
